@@ -1,6 +1,5 @@
 # Vietnamese License Plate Recognition
-In our IoT project, thanks for your AI model for number plate detection
-- Minh -
+In our IoT project, special thanks for your AI model for number plate detection - Minh -
 Source: https://github.com/trungdinh22/License-Plate-Recognition
 
 
