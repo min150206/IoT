@@ -1,6 +1,6 @@
 # IOT Project - Automation Parking System
-
-#AI model
+  This project aimming for automation vehicle parking system ensuring more accuracy, ease of use and reduce the inconvenience when check0in and out of the vehicle by automating record the number and save to the database
+# AI model
 
 
 - **Pretrained model** provided in ./model folder in this repo 
