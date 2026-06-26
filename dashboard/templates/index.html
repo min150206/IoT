@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parking Control</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- Gate status header -->
+  <header class="gate-header" id="gateHeader" data-state="closed">
+    <div class="gate-info">
+      <div class="gate-label">Gate status</div>
+      <div class="gate-state" id="gateStateText">CLOSED</div>
+    </div>
+    <div class="gate-light" id="gateLight"></div>
+    <div class="gate-meta">
+      <div class="meta-row">
+        <span class="meta-key">ESP32</span>
+        <span class="meta-val" id="espOnline">—</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Sensors</span>
+        <span class="meta-val" id="presenceVal">—</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    <!-- Current vehicles -->
+    <section class="card">
+      <div class="card-head">
+        <h2>Slot</h2>
+        <span class="count" id="currentCount">0</span>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Plate info</th><th>Check-in time</th></tr>
+          </thead>
+          <tbody id="currentBody">
+            <tr class="empty-row"><td colspan="2">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Search + manual control -->
+    <section class="card">
+      <div class="card-head">
+        <h2>Find / Manage</h2>
+      </div>
+
+      <div class="field-row">
+        <input type="text" id="searchInput" placeholder="Enter number plate..." autocomplete="off">
+        <button class="btn btn-ghost" id="searchBtn">Find</button>
+      </div>
+
+      <div class="table-scroll search-scroll">
+        <table>
+          <thead>
+            <tr><th>Plate</th><th>In</th><th>Out</th></tr>
+          </thead>
+          <tbody id="searchBody">
+            <tr class="empty-row"><td colspan="3">Enter plate info to find</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="manual-actions">
+        <input type="text" id="manualPlate" placeholder="Manual plate..." autocomplete="off">
+        <div class="btn-row">
+          <button class="btn btn-green" id="manualCheckin">Check-in</button>
+          <button class="btn btn-red" id="manualCheckout">Check-out</button>
+        </div>
+        <div class="manual-msg" id="manualMsg"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Logs -->
+  <section class="card logs-card">
+    <div class="card-head">
+      <h2>Check-in / Check-out history</h2>
+      <span class="count" id="logsCount">0</span>
+    </div>
+    <div class="table-scroll logs-scroll">
+      <table>
+        <thead>
+          <tr><th>Plate</th><th>Action</th><th>Time</th></tr>
+        </thead>
+        <tbody id="logsBody">
+          <tr class="empty-row"><td colspan="3">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
