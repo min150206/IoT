@@ -9,3 +9,5 @@ pyyaml
 requests
 pandas
 seaborn
+flask
+psycopg2-binary
